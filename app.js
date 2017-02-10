@@ -21,21 +21,55 @@ phantom.create([], { phantomPath: phantomPath })
             console.info('Requesting', requestData.url)
         });
 
+
         return page.open('https://oauth.vk.com/authorize?client_id=3682744&display=wap&redirect_uri=oauth.vk.com/blank.html&scope=wall,offline&response_type=token&v=5.62');
     }).then(function(status){
         console.log(status);
 
         return phPage.property('content');
     }).then(function(content){
-        console.log(content);
+        //console.log(content);
 
         setTimeout(() => {
-            phPage.evaluate(function(){
-                return document.getElementsByTagName('body');
-            }).then(html => {
-                console.log(html[0].innerHTML);
-                process.exit(0);
+
+            phPage.on("onLoadFinished", function(status) {
+                phPage.evaluate(function() {
+                    return document.getElementsByTagName('body')[0];
+                }).then(body => {
+                   console.log(body.innerHTML);
+                    process.exit(0);
+                })
             });
+
+            phPage.evaluate(function() {
+                var email = document.getElementsByName('email')[0];
+                email.value = "Gvinar@yandex.ru";
+                var pass = document.getElementsByName('pass')[0];
+                pass.value = "glazunov523923";
+
+                var form = document.getElementsByTagName('form')[0];
+                form.submit();
+            })
+
+
+            //phPage.evaluate(function(){
+            //    return document.getElementsByName('email');
+            //}).then(email => {
+            //    console.log(email[0].value);
+            //    email[0].value = "Gvinar@yandex.ru";
+            //    console.log(email[0].value);
+            //    return phPage.evaluate(function(){
+            //        return document.getElementsByName('pass');
+            //    });
+            //}).then(pass => {
+            //    pass[0].value = "glazunov523923";
+            //    return phPage.evaluate(function(){
+            //        return document.getElementsByTagName('body');
+            //    });
+            //.then(body => {
+            //    console.log(body.innerHTML);
+            //    process.exit(0);
+            //});
         }, 2000);
     }).catch(error => {
     console.log(error);

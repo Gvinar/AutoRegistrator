@@ -1,0 +1,2 @@
+https://vk.com/dev/messages.send
+https://vk.com/dev/permissions
