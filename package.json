@@ -1,0 +1,20 @@
+{
+  "name": "VKTest",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "checkcode": "jshint .",
+    "build": "npm install & npm run checkcode"
+  },
+  "main": "app.js",
+  "dependencies": {
+    "jshint": "^2.0.0",
+    "bluebird": "^3.0.0",
+    "request": "^2.0.0",
+    "phantomjs": "^2.0.0",
+    "phantom": "^4.0.0"
+  },
+  "devDependencies": {
+    "lodash": "^4.0.0"
+  }
+}

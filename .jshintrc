@@ -1,0 +1,28 @@
+{
+  "node": true,
+  "mocha":  true,
+  "strict": true,
+  "laxcomma": true,
+  "nomen": false,
+  "indent": 2,
+  "curly": true,
+  "newcap": true,
+  "noarg": true,
+  "noempty": true,
+  "nonew": true,
+  "sub": true,
+  "undef": true,
+  "unused": true,
+  "trailing": true,
+  "boss": true,
+  "eqnull": true,
+  "immed": true,
+  "expr": true,
+  "latedef": "nofunc",
+  "validthis": true,
+  "eqeqeq": false,
+  "esnext": true,
+  "globals": {
+    "Promise": true
+  }
+}
